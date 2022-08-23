@@ -1,46 +1,25 @@
 package com.java.store.admin.entity;
 
+import lombok.Data;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
+@Data
 public class User {
 
-    public  int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public  long id;
 
+    @Column(name = "name", nullable = false)
     public String firstName;
 
+    @Column(name = "surname")
     public String lastName;
 
-    public int age;
+    @Column(name = "email")
+    public String email;
 
-    public User(int id, String firstName, String lastName, int age) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    @Override
-    public String toString() {
-        return "User [" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ']';
-    }
 }
